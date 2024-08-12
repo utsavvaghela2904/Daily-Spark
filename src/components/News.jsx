@@ -21,9 +21,12 @@ export class News extends Component {
     }
 
     async UpdateNews(PageNo) {
+        this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=f815dd45cc694d34896bc78890e29151&category=${this.props.category}&pageSize=${this.props.pageSize}&page=${PageNo}`;
         this.setState({ loading: true });
+        this.props.setProgress(30);
         let data = await fetch(url);
+        this.props.setProgress(70);
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState({
@@ -31,6 +34,7 @@ export class News extends Component {
             totalResults: parsedData.totalResults,
             loading: false
         });
+        this.props.setProgress(100);
         document.title = `${this.capitallizeFirstLetter(this.props.category)} - Daily Spark`
     }
 
