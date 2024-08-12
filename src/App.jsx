@@ -19,15 +19,15 @@ export class App extends Component {
         category: PropTypes.string,
     }
 
-    constructor(props){
+    constructor(props) {
         super(props);
-            this.state = {
-                isDarkMode: false,
-            }
+        this.state = {
+            isDarkMode: false,
         }
+    }
     toggleMode = () => {
         this.setState(prevState => ({
-            isDarkMode :!prevState.isDarkMode
+            isDarkMode: !prevState.isDarkMode
         }))
     }
 
@@ -38,17 +38,17 @@ export class App extends Component {
             <>
                 <Router>
                     <div className={`app ${themeClass}`}>
-                    <NavBar toggleMode={this.toggleMode}/>
-                    <Routes>
-                        <Route path='/' element={<News key="general" pageSize={6} country={"in"} category={"general"} />} />
-                        <Route path='/business' element={<News key="business" pageSize={6} country={"in"} category={"business"} />} />
-                        <Route path='/entertainment' element={<News key="entertainment" pageSize={6} country={"in"} category={"entertainment"} />} />
-                        <Route path='/health' element={<News key="health" pageSize={6} country={"in"} category={"health"} />} />
-                        <Route path='/science' element={<News key="science" pageSize={6} country={"in"} category={"science"} />} />
-                        <Route path='/sports' element={<News key="sports" pageSize={6} country={"in"} category={"sports"} />} />
-                        <Route path='/technology' element={<News key="technology" pageSize={6} country={"in"} category={"technology"} />} />
-                        <Route path='/Aboutus' element={<Aboutus/>}></Route>
-                    </Routes>
+                        <NavBar toggleMode={this.toggleMode} />
+                        <Routes>
+                            <Route path='/' element={<News key="general" pageSize={6} country={"in"} category={"general"} />} />
+                            <Route path='/business' element={<News key="business" pageSize={6} country={"in"} category={"business"} />} />
+                            <Route path='/entertainment' element={<News key="entertainment" pageSize={6} country={"in"} category={"entertainment"} />} />
+                            <Route path='/health' element={<News key="health" pageSize={6} country={"in"} category={"health"} />} />
+                            <Route path='/science' element={<News key="science" pageSize={6} country={"in"} category={"science"} />} />
+                            <Route path='/sports' element={<News key="sports" pageSize={6} country={"in"} category={"sports"} />} />
+                            <Route path='/technology' element={<News key="technology" pageSize={6} country={"in"} category={"technology"} />} />
+                            <Route path='/Aboutus' element={<Aboutus />}></Route>
+                        </Routes>
                     </div>
                 </Router>
             </>

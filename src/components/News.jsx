@@ -12,7 +12,7 @@ export class News extends Component {
             articles: [],
             loading: false,
             page: 1,
-            totalResults: 0
+            totalResults: 0,
         };
     }
 
@@ -35,7 +35,7 @@ export class News extends Component {
     }
 
     async componentDidMount() {
-        this.UpdateNews(this.state.page)
+        this.UpdateNews(this.state.page);
 
     }
 
@@ -58,9 +58,9 @@ export class News extends Component {
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState({
-            articles: parsedData.articles,
+            articles: parsedData.articles.concat(this.state.articles),
             totalResults: parsedData.totalResults,
-            loading: false
+            loading: false,
         });
     };
 
@@ -75,6 +75,12 @@ export class News extends Component {
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length < this.state.totalResults}
                     loader={<h4>Loading...</h4>}
+                    endMessage={
+                        <p style={{ textAlign: 'center' }}>
+                            <b>Yay! You have seen it all</b>
+                        </p>
+                    }
+
                 >
                     <div className='container'>
                         <div className="row my-3">
