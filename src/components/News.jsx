@@ -22,7 +22,7 @@ export class News extends Component {
 
     async UpdateNews(PageNo) {
         this.props.setProgress(10);
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=f815dd45cc694d34896bc78890e29151&category=${this.props.category}&pageSize=${this.props.pageSize}&page=${PageNo}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${this.props.apiKey}&category=${this.props.category}&pageSize=${this.props.pageSize}&page=${PageNo}`;
         this.setState({ loading: true });
         this.props.setProgress(30);
         let data = await fetch(url);
@@ -80,7 +80,7 @@ export class News extends Component {
                     hasMore={this.state.articles.length < this.state.totalResults}
                     loader={<h4>Loading...</h4>}
                     endMessage={
-                        <p style={{ textAlign: 'center' }}>
+                        <p className='my' style={{ textAlign: 'center' }}>
                             <b>Yay! You have seen it all</b>
                         </p>
                     }

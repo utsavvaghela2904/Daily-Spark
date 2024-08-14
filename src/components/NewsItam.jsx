@@ -15,7 +15,7 @@ export class NewsItam extends Component {
             </h5>
             <p className="card-text">{description}...</p>
             <p className="card-text"><small className="text-body-secondary">By {!author ? "Unknown" : author} on {new Date(date).toGMTString()}</small></p>
-            <a href={newsUrl} target='_blank' rel="noreferrer" className="btn btn-outline-primary">Read More</a>
+            <a href={newsUrl} target='_blank' rel="noreferrer" className="btn btn-outline-success">Read More</a>
           </div>
         </div>
       </div>
